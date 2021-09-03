@@ -54,6 +54,6 @@ jobs:
       - name: '"docker images"'
         run: $(${{ matrix.runs.images }} | grep -vi REPOSITORY | grep -vi librarytest | awk '{print "docker tag " $3 " ghcr.io/mikesplain/" $1 ":"$2}' | bash)
       - name: '"docker images - retagged"'
-        run: $(${{ matrix.runs.images }} 
+        run: ${{ matrix.runs.images }}
       - name: '"docker images - retagged"'
         run: $(${{ matrix.runs.images }} | grep mikesplain | awk '{print "docker push " $1 ":" $2}' | bash)
